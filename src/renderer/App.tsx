@@ -20,6 +20,7 @@ import Stats from './pages/Pages';
 import Client from './pages/Client';
 import Grinder from './pages/Grinder';
 import Settings from './pages/Settings';
+import Login from './pages/Login';
 
 export default function App() {
   const theme = useMantineTheme();
@@ -59,17 +60,38 @@ export default function App() {
             <AppHeader opened={opened} setOpened={setOpened} theme={theme} />
           }
         >
-          {/* <Text>Content here</Text> */}
           <Routes>
-            <Route element={<Content />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/queue" element={<Queue />} />
-              <Route path="/ongoing" element={<Ongoing />} />
-              <Route path="/finish" element={<Finish />} />
-              <Route path="/stats" element={<Stats />} />
-              <Route path="/client" element={<Client />} />
-              <Route path="/grinder" element={<Grinder />} />
-              <Route path="/settings" element={<Settings />} />
+            <Route path="/">
+              <Route path="login" element={<Login />} />
+              <Route index element={<Home />} />
+
+              <Route path="queue">
+                <Route index element={<Queue />} />
+              </Route>
+
+              <Route path="ongoing">
+                <Route index element={<Ongoing />} />
+              </Route>
+
+              <Route path="finish">
+                <Route index element={<Finish />} />
+              </Route>
+
+              <Route path="stats">
+                <Route index element={<Stats />} />
+              </Route>
+
+              <Route path="client">
+                <Route index element={<Client />} />
+              </Route>
+
+              <Route path="grinder">
+                <Route index element={<Grinder />} />
+              </Route>
+
+              <Route path="settings">
+                <Route index element={<Settings />} />
+              </Route>
             </Route>
           </Routes>
         </AppShell>
