@@ -1,10 +1,7 @@
 import React from 'react';
 import { Table, Card, Text, Button } from '@mantine/core';
-import { useLiveQuery } from 'dexie-react-hooks';
-import { db } from '../db/server';
 
 const Client = () => {
-  const result = useLiveQuery(() => db.clients.toArray());
   return (
     <Card shadow="sm">
       <Card.Section withBorder inheritPadding py="xs">
@@ -24,7 +21,7 @@ const Client = () => {
           </tr>
         </thead>
         <tbody>
-          {/* <tr>
+          <tr>
             <td>1</td>
             <td>John Doe</td>
             <td>www.facebook.com/johndoe</td>
@@ -34,17 +31,7 @@ const Client = () => {
               </Button>
             </td>
             <td>...</td>
-          </tr> */}
-          {result?.map((client, id) => (
-            <tr key={client.id}>
-              <td>{id + 1}</td>
-              <td>{client.name}</td>
-              <td>{client.facebook}</td>
-              <td>{client.mobile}</td>
-              <td>{client.services}</td>
-              <td>...</td>
-            </tr>
-          ))}
+          </tr>
         </tbody>
       </Table>
     </Card>
