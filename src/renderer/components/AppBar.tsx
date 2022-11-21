@@ -11,6 +11,7 @@ import {
   IconOld,
   IconCircleDashed,
 } from '@tabler/icons';
+import { isRouteQueue } from 'renderer/util/checkRoutes';
 
 const AppBar = ({ opened }: { opened: boolean }) => {
   return (
@@ -33,7 +34,7 @@ const AppBar = ({ opened }: { opened: boolean }) => {
           component={Link}
           to="/queue"
           icon={<IconTimeline size={16} stroke={1.5} />}
-          active={!!useMatch('/queue')}
+          active={!!useMatch('/queue' || '/queue/add')}
         />
 
         <NavLink
